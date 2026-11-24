@@ -1,0 +1,148 @@
+:root {
+  --laranja: #c2410c;
+  --laranja-escuro: #9a3412;
+  --cinza-texto: #44403c;
+  --cinza-claro: #f5f5f4;
+  --borda: #e7e5e4;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--cinza-claro);
+  color: var(--cinza-texto);
+}
+
+.container {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 16px;
+  min-height: 100vh;
+}
+
+.tela-centralizada {
+  text-align: center;
+  padding-top: 25vh;
+}
+
+h1 { font-size: 1.3rem; margin: 0 0 4px; }
+h2 { font-size: 1.4rem; }
+
+.ajuda { color: #78716c; font-size: 0.85rem; margin: 4px 0; }
+.ajuda-rodape { margin-top: 24px; }
+.erro { color: #b91c1c; font-weight: 600; }
+
+.cabecalho {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 8px;
+}
+
+label {
+  display: block;
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin: 12px 0 4px;
+}
+
+input, select, textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  font-size: 1rem;
+  background: white;
+}
+
+textarea { min-height: 70px; resize: vertical; }
+
+.duas-colunas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.cartao {
+  background: white;
+  border: 1px solid var(--borda);
+  border-radius: 12px;
+  padding: 14px;
+  margin-bottom: 14px;
+}
+
+.cartao-topo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.botao-primario {
+  width: 100%;
+  padding: 14px;
+  background: var(--laranja);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+}
+.botao-primario:active { background: var(--laranja-escuro); }
+
+.botao-grande { font-size: 1.05rem; padding: 16px; }
+
+.botao-secundario {
+  width: 100%;
+  padding: 12px;
+  background: white;
+  border: 1px dashed var(--laranja);
+  color: var(--laranja);
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-link {
+  background: none;
+  border: none;
+  color: var(--laranja);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 6px;
+}
+
+.botao-remover {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.aviso-pendencias {
+  background: #fffbeb;
+  border: 1px solid #fcd34d;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 0.85rem;
+  margin-bottom: 14px;
+}
+.aviso-pendencias button {
+  margin-left: 8px;
+  border: none;
+  background: var(--laranja);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--borda);
+  margin: 16px 0;
+}
