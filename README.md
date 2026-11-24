@@ -1,17 +1,19 @@
 # Atualização Semanal de Contratos
 
-Todo começo de semana era a mesma coisa: alguém precisava correr atrás de cada fiscal de obra para saber como andavam os prédios em construção. Quanto foi executado, quantos metros quadrados ficaram prontos, quantos pavimentos foram concluídos, se a obra estava andando ou parada. As respostas chegavam por mensagem, cada uma de um jeito, e depois tinham que ser digitadas numa planilha.
+## O problema
 
-Este projeto resolve isso. Cada fiscal entra com a própria senha, vê só os contratos que estão com ele e preenche a atualização da semana num formulário simples, pelo celular, direto do canteiro. Tudo cai numa planilha do Google Sheets, organizada e com data e hora, pronta para quem acompanha as obras.
+Toda semana era preciso cobrar cada fiscal, um por um, para saber como estavam as obras: valor executado, área concluída, pavimentos finalizados e situação de cada contrato. As respostas chegavam por mensagem, cada uma de um jeito, e depois tinham que ser digitadas à mão numa planilha. Dava muito trabalho e abria espaço para erro.
 
-## Duas versões do mesmo app
+## A solução
 
-O projeto começou em **Streamlit** e depois ganhou uma segunda versão, pensada para o campo.
+Criei um app em que o próprio fiscal faz a atualização pelo celular. Ele entra com a senha dele, vê só os contratos que estão com ele, preenche os dados da semana e envia. Tudo vai direto para uma planilha do Google Sheets, organizado e com data e hora, sem ninguém precisar redigitar nada.
 
-- **`streamlit/`**: a primeira versão, escrita em Python. É rápida de montar e de manter, mas precisa de internet o tempo todo.
-- **`pwa/` + `apps-script/`**: a versão que funciona **offline**. Dentro de um prédio em obra, no subsolo ou entre lajes de concreto, o sinal do celular some com facilidade. Por isso o fiscal pode preencher tudo sem internet. As respostas ficam guardadas no próprio celular e são enviadas sozinhas quando a conexão volta. Ela pode ser instalada na tela inicial como se fosse um aplicativo, e o "servidor" é um Google Apps Script ligado à própria planilha.
+## Duas versões
 
-As duas versões gravam exatamente no mesmo formato, então dá para usar uma ou outra sem mexer na planilha.
+- **`streamlit/`**: versão em Python com Streamlit. Simples de manter, mas precisa de internet.
+- **`pwa/` + `apps-script/`**: versão que funciona **offline**. Dentro de prédios em obra o sinal costuma falhar, então o fiscal preenche normalmente e as respostas ficam salvas no celular, sendo enviadas sozinhas quando a internet volta. Pode ser instalada na tela inicial como um aplicativo.
+
+As duas gravam no mesmo formato, então a planilha é a mesma para qualquer uma delas.
 
 ## Como funciona
 
@@ -74,9 +76,6 @@ python sincronizar_contratos.py caminho/da/planilha_mestre.xlsx caminho/da/chave
 3. Preencha a aba "Senhas" da planilha com o nome e a senha de cada fiscal.
 4. Publique a pasta `pwa/` em qualquer hospedagem com HTTPS (GitHub Pages serve). No celular, é só abrir o link e escolher "Adicionar à tela inicial".
 
-## Cuidados
-
-A chave da conta de serviço e as senhas reais nunca devem ir para o repositório. O `.gitignore` já deixa de fora o `secrets.toml`, os arquivos de credenciais e a planilha mestre.
 
 ## Tecnologias
 
